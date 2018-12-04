@@ -1,3 +1,4 @@
+code
 register
 kernel mode
 user mode
@@ -38,7 +39,6 @@ Debugging
 username
 bus
 device
-code
 Windows
 object
 handle
@@ -64,3 +64,4 @@ routine
 main
 hook
 context
+debug
