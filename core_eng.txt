@@ -1,13 +1,13 @@
 register
-kernelmode
-usermode
+kernel mode
+user mode
 kernel-mode
 user-mode
-pagedirectory
+page directory
 breakpoint
 kernel
 Exception
-embeddedsignature
+embedded signature
 catalog
 process
 thread
@@ -21,8 +21,8 @@ forensic
 string
 image
 dump
-physicalmemory
-virtualmemory
+physical memory
+virtual memory
 framework
 memory
 script
@@ -31,7 +31,7 @@ header
 wrapper
 offset
 snapshot
-pagefile
+page file
 driver
 file
 Debugging
@@ -45,10 +45,9 @@ handle
 export
 import
 callback
-callback
 thread
-doubleword
-widecharacter
+double word
+wide character
 symbol
 disassembly
 assembly
@@ -64,3 +63,4 @@ function
 routine
 main
 hook
+context
