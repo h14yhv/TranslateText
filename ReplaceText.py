@@ -20,6 +20,27 @@ def read_file(path_file):
     return content
 
 
+def replace_algo_addhv8(content, old, new):
+    # generate regular expression ignore case sentitive to search
+
+    try:
+        count_item = 0
+        re_item_find = re.compile(old, re.IGNORECASE)
+        content_temp = re.compile(content, re.IGNORECASE)
+        int_find = content.find(re_item_find.pattern)
+        while int_find > -1:
+            content, number = re_item_find.subn(content[int_find:int_find+len(old)] + 'HV8', content, count=1)
+            int_find = content_temp.find(re_item_find.pattern, int_find + len(old) + 4)
+            count_item = count_item + 1
+    except:
+        print 'compile error'
+        content = string.replace(content, old, new)
+        return content
+    if count_item > 0:
+        print 'Success replace ', count_item, old, 'to', new
+    return content
+
+
 def replace_algo(content, old, new):
     # generate regular expression ignore case sentitive to search
     try:
@@ -35,56 +56,19 @@ def replace_algo(content, old, new):
 
 
 def replace_str(content, old, new):
+    old = old.strip()
     StrOld = old.split(' ')
     if len(StrOld) > 1:
         content = replace_algo(content, old, StrOld[0] + 'hv8 ' + StrOld[1] + 'hv8')
         return content
-    content = replace_algo(content, old + '', new + 'hv8')
-#    content = replace_algo(content, old + 's ', new + 'shv8 ')
-#    content = replace_algo(content, old + 'es ', new + 'eshv8 ')
-#    content = replace_algo(content, old + 'ed ', new + 'edhv8 ')
-#    content = replace_algo(content, old + ',', new + 'hv8,')
-#    content = replace_algo(content, old + '.', new + 'hv8.')
-#    content = replace_algo(content, old + ':', new + 'hv8:')
-#    content = replace_algo(content, old + ';', new + 'hv8;')
+    content = replace_algo(content, old , new + 'hv8')
     return content
+
 
 
 def convert_replace_str(content, old, new):
 	content = replace_algo(content, 'hv8', '')
 	return content
-#    StrOld = old.split(' ')
-#    if len(StrOld) > 1:
-#        content = replace_algo(content, StrOld[0] + 'hv8 ' + StrOld[1] + 'hv8', old)
-#        return content
-#    content = replace_algo(content, new + 'hv8', old + '')
-#    content = replace_algo(content, new + 'shv8 ', old + 's ')
-#    content = replace_algo(content, new + 'eshv8 ', old + 'es ')
-#    content = replace_algo(content, new + 'edhv8 ', old + 'ed ')
-#    content = replace_algo(content, new + 'hv8, ', old + ', ')
-#    content = replace_algo(content, new + 'hv8. ', old + '. ')
-#    content = replace_algo(content, new + 'hv8: ', old + ': ')
-#    content = replace_algo(content, new + 'hv8; ', old + '; ')
-
-
-
-def eng1_to_eng():
-    #    FileCore = open(sys.argv[1], 'a+')
-    #    FileTranslate = open(sys.argv[2], 'r+')
-
-    # open file source
-    Core = read_file(core_path)
-    content = read_file(dest_path)
-    CoreOriginal = Core.splitlines()
-    # print(contentCore)
-    i = 0
-    while len(CoreOriginal) != i:
-        # print CoreOriginal
-        content = convert_replace_str(content, CoreOriginal[i], CoreOriginal[i])  # Replace word
-        i = i + 1
-
-    # print(content)
-    write_file(dest_path, content)
 
 
 def vn_to_eng():
@@ -106,6 +90,22 @@ def vn_to_eng():
         if number > 0:
             print 'Success replace ', number, find_item[0], 'to', find_item[1]
         i = i + 1
+    write_file(dest_path, content)
+
+
+def eng1_to_eng():
+    # open file source
+    Core = read_file(core_path)
+    content = read_file(dest_path)
+    CoreOriginal = Core.splitlines()
+    # print(contentCore)
+    i = 0
+    while len(CoreOriginal) != i:
+        # print CoreOriginal
+        content = convert_replace_str(content, CoreOriginal[i], CoreOriginal[i])  # Replace word
+        i = i + 1
+
+    # print(content)
     write_file(dest_path, content)
 
 
@@ -132,8 +132,6 @@ def main():
     print 'So tham so:', len(sys.argv), 'tham so.'
     print 'Danh sach tham so:', str(sys.argv)
 
-    type_set = sys.argv[3]
-#    type_set = '1'
     if type_set == '1':
         print 'Eng To Eng1'
         eng_to_eng1()
@@ -149,9 +147,11 @@ def main():
 
 print 'Usage: File_Core File_Translate Type'
 print "Type:  1:EngToEng hv8, 2:Eng hv8 ToEng 2: VnToEng,"
-core_path = sys.argv[1]
-dest_path = sys.argv[2]
-#core_path = "E:\\Auto\\TranslateTool\\Translate\\Translate\\test\\Core_eng.txt"
-#dest_path = "E:\\Auto\\TranslateTool\\Translate\\Translate\\test\\Dest_eng.txt"
+#core_path = sys.argv[1]
+#dest_path = sys.argv[2]
+#type_set = sys.argv[3]
+type_set = '2'
+core_path = "C:\\Users\\HuyHV\\Desktop\\Auto\\core_eng.txt"
+dest_path = "C:\Users\HuyHV\Desktop\\usb_driver_translated.txt"
 
 main()
