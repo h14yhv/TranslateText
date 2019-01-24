@@ -37,9 +37,9 @@ def replace_algo(content, old, new):
 def replace_str(content, old, new):
     StrOld = old.split(' ')
     if len(StrOld) > 1:
-        content = replace_algo(content, old, StrOld[0] + 'hv8 ' + StrOld[1] + 'hv8')
+        content = replace_algo(content, old, 'hv8' + StrOld[0] + 'hv8 ' + 'hv8' + StrOld[1] + 'hv8')
         return content
-    content = replace_algo(content, old + '', new + 'hv8')
+    content = replace_algo(content, old , 'hv8' + new + 'hv8')
 #    content = replace_algo(content, old + 's ', new + 'shv8 ')
 #    content = replace_algo(content, old + 'es ', new + 'eshv8 ')
 #    content = replace_algo(content, old + 'ed ', new + 'edhv8 ')
