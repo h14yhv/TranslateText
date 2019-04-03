@@ -146,12 +146,12 @@ def main():
 
 
 print 'Usage: File_Core File_Translate Type'
-print "Type:  1:EngToEng hv8, 2:Eng hv8 ToEng 2: VnToEng,"
-#core_path = sys.argv[1]
-#dest_path = sys.argv[2]
-#type_set = sys.argv[3]
-type_set = '2'
-core_path = "C:\\Users\\HuyHV\\Desktop\\Auto\\core_eng.txt"
-dest_path = "C:\Users\HuyHV\Desktop\\usb_driver_translated.txt"
+print "Type:  1:EngToEng hv8, 2:Eng hv8 ToEng 3: VnToEng,"
+core_path = sys.argv[1]
+dest_path = sys.argv[2]
+type_set = sys.argv[3]
+#type_set = '2'
+#core_path = "C:\\Users\\HuyHV\\Desktop\\Auto\\core_eng.txt"
+#dest_path = "C:\Users\HuyHV\Desktop\\usb_driver_translated.txt"
 
 main()
