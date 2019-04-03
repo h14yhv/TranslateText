@@ -59,9 +59,9 @@ def replace_str(content, old, new):
     old = old.strip()
     StrOld = old.split(' ')
     if len(StrOld) > 1:
-        content = replace_algo(content, old, StrOld[0] + 'hv8 ' + StrOld[1] + 'hv8')
+        content = replace_algo(content, old, 'hv8' + StrOld[0] + 'hv8 ' + 'hv8' + StrOld[1] + 'hv8')
         return content
-    content = replace_algo(content, old , new + 'hv8')
+    content = replace_algo(content, old , 'hv8' + new + 'hv8')
     return content
 
 

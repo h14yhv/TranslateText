@@ -8,7 +8,7 @@ user-mode
 page directory
 breakpoint
 kernel
-Exception
+exception
 embedded signature
 catalog
 process
@@ -36,9 +36,8 @@ page file
 driver
 file
 Debugging
-debug
-username
-bus
+usernamebus
+code
 Windows
 object
 handle
@@ -59,10 +58,17 @@ symbol
 module
 method
 service
+main function
 function
 routine
-main
 hook
+interface
+build
+call
+system
+Bypass
+user
+instruction
 context
 subsystem
 reverse
