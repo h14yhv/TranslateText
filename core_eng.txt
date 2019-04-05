@@ -83,3 +83,4 @@ firmware
 interface
 pass
 return
+descriptor
