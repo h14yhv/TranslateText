@@ -1,13 +1,15 @@
 import sys, getopt, re, string
+from googletrans import Translator
 
+translator = Translator()
 
 def write_file(path_file, content):
     file_translate = open(path_file, 'w+')
     try:
-        print 'write content to file'
+        print ('write content to file')
         file_translate.write(content)
     except:
-        print "Error", sys.exc_info()[0]
+        print ('Error')
     file_translate.flush()
     file_translate.close()
 
@@ -33,11 +35,11 @@ def replace_algo_addhv8(content, old, new):
             int_find = content_temp.find(re_item_find.pattern, int_find + len(old) + 4)
             count_item = count_item + 1
     except:
-        print 'compile error'
+        print ('compile error')
         content = string.replace(content, old, new)
         return content
     if count_item > 0:
-        print 'Success replace ', count_item, old, 'to', new
+        print ('Success replace ', count_item, old, 'to', new)
     return content
 
 
@@ -47,11 +49,11 @@ def replace_algo(content, old, new):
         re_item_find = re.compile(old, re.IGNORECASE)
         content, number = re_item_find.subn(new, content)
     except:
-        print 'compile error'
+        print ('compile error')
         content = string.replace(content, old, new)
         return content
     if number > 0:
-        print 'Success replace ', number, old, 'to', new
+        print ('Success replace ', number, old, 'to', new)
     return content
 
 
@@ -85,10 +87,10 @@ def vn_to_eng():
             re_item_find = re.compile(find_item[0], re.IGNORECASE)
             content, number = re_item_find.subn(find_item[1], content)
         except:
-            print 'compile error'
+            print ('compile error')
             content = string.replace(find_item[0], find_item[1])
         if number > 0:
-            print 'Success replace ', number, find_item[0], 'to', find_item[1]
+            print ('Success replace ', number, find_item[0], 'to', find_item[1])
         i = i + 1
     write_file(dest_path, content)
 
@@ -125,31 +127,37 @@ def eng_to_eng1():
         i = i + 1
 
     # print(content)
+    translation = translator.translate(content, dest='vi')
+    content = translation.text
     write_file(dest_path, content)
 
 
 def main():
-    print 'So tham so:', len(sys.argv), 'tham so.'
-    print 'Danh sach tham so:', str(sys.argv)
+    print ('So tham so:', len(sys.argv), 'tham so.')
+    print ('Danh sach tham so:', str(sys.argv))
 
-    if type_set == '1':
-        print 'Eng To Eng1'
-        eng_to_eng1()
-    elif type_set == '2':
-        print 'Eng1 To Eng'
-        eng1_to_eng()
-    elif type_set == '3':
-        print 'Vn To Eng'
-        vn_to_eng()
-    else:
-        print 'Error'
+    eng_to_eng1()
+    eng1_to_eng()
+
+#    if type_set == '1':
+#       print 'Eng To Eng1'
+#        eng_to_eng1()
+#    elif type_set == '2':
+#        print 'Eng1 To Eng'
+#        eng1_to_eng()
+#    elif type_set == '3':
+#        print 'Vn To Eng'
+#        vn_to_eng()
+#    else:
+#        print 'Error'
 
 
-print 'Usage: File_Core File_Translate Type'
-print "Type:  1:EngToEng hv8, 2:Eng hv8 ToEng 3: VnToEng,"
+print ('Usage: File_Core File_Translate Type')
+print ("Type:  1:Eng To Enghv8, 2:Eng hv8 ToEng 3: VnToEng,")
 core_path = sys.argv[1]
 dest_path = sys.argv[2]
-type_set = sys.argv[3]
+#type_set = sys.argv[3]
+
 #type_set = '2'
 #core_path = "C:\\Users\\HuyHV\\Desktop\\Auto\\core_eng.txt"
 #dest_path = "C:\Users\HuyHV\Desktop\\usb_driver_translated.txt"

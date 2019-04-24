@@ -66,7 +66,7 @@ interface
 build
 call
 system
-Bypass
+bypass
 user
 instruction
 context
@@ -82,3 +82,4 @@ unload
 interface
 endpoint
 firmware
+include
