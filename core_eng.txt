@@ -62,7 +62,6 @@ main function
 function
 routine
 hook
-interface
 build
 call
 system
@@ -79,7 +78,9 @@ static
 struct
 log
 unload
-interface
 endpoint
 firmware
-include
+interface
+pass
+return
+descriptorinclude
