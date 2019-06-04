@@ -1,18 +1,19 @@
-device
-code
-register
-kernel mode
-user mode
-kernel-mode
-user-mode
-page directory
-breakpoint
-kernel
-exception
-embedded signature
-catalog
-process
-thread
+User-mode
+Device
+Drive
+Code
+Register
+Kernel mode
+User mode
+Kernel-mode
+Page directory
+Breakpoint
+Kernel
+Exception
+Embedded signature
+Catalog
+Process
+Thread
 post-mortem
 Live-response
 Volatile
@@ -33,10 +34,10 @@ wrapper
 offset
 snapshot
 page file
-driver
 file
-Debugging
-usernamebus
+Debug
+username
+bus
 code
 Windows
 object
@@ -83,4 +84,7 @@ firmware
 interface
 pass
 return
-descriptorinclude
+descriptor
+include
+Configuration
+endpoint
