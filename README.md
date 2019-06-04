@@ -8,3 +8,8 @@ Fix in hoa, in thường: Lỗi do khi replace sử dụng string trong file cor
 }^p : &&&&&
 ]^p : *****
 ?^p : (((((
+
+
+pip install python-docx
+pip install docx2txt
+Cài cert cho máy trên cty
